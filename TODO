@@ -1,0 +1,70 @@
+[DONE] -REORGANIZAR CODIGO
+[DONE] -INICIARLIZAR E DECLARAR A VARIAVEL NA MESMA LINHA
+[DONE] -CHAMADA RECURSIVA DE FUNCAO
+[DONE] -PIPES: INTERVALO
+[DONE] -PIPES: FILTRO
+[DONE] -PIPES: PARACADA
+[NAUM VO FAZE ESSA PORRA] -INICIALIZACAO DE ARRAY COM LIST
+[NAUM VO FAZE ESSA PORRA] -VERIFICAO DO TAMANHO DOS ARRAYS
+[JA TA BOM]-VERIFICAR SHIFT/REDUCE
+
+-PIPES: PRIMEIROS
+-PIPES: ULTIMOS
+-PIPES: ORDENA
+-MUDAR NOME DA MAIN
+
+* CHECAR TAMANHO S2 [s2 É O CARALHO]
+
+
+
+[ ARIA DU XATE DO MALLOQUE - SOH NEGO BOLADU DAS RUA]
+
+FLWS
+
+
+FUNC : _ID '(' PARAM_LIST ')'
+    { 
+        cout << $1.v << ": " << $3.c << endl;
+        if ($3.c == "")
+            generateFunctionCallWithoutParametersCode(&$$, $1);
+        else
+            generateFunctionCallWithParametersCode(&$$, $1, $3);
+    }
+     ;
+     
+PARAM_LIST: PARAMS {$$ = $1;}
+          | /* empty */ { $$ = Attribute(); }
+          ;
+          
+          
+          
+void generateFirstNCode( Attribute* SS, const Attribute& n ){
+    
+   *SS = Attribute();
+    SS->v = generateTemp( Type( "int" ) );
+    
+    Attribute count = Attribute();
+    Attribute cond = Attribute();
+    
+    cond.t = Type("bool");
+    cond.v = generateTemp( Type( "bool" ) );
+    
+    count.v = SS->v;
+    count.t = Type("int");
+    
+    insertVarTS(tsl, count.v, Type("int"));
+    insertVarTS(tsl, cond.v, Type("int"));
+
+    generateVarDeclaration(&SS, count, count);
+    generateVarDeclaration(&SS, cond, cond);
+    
+    SS->c = count.v + ";\n"
+            + "  " 
+            + count.v + " = " + count.v + " 1;\n";
+            + cond.v + " = " + count.v + " > " + n.v + ";\n";
+            + "  if( " + cond.v + " ) goto " 
+            + activePipeStep 
+            + ";\n";
+    
+    SS->d = cond.d;
+}

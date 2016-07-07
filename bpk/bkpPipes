@@ -1,0 +1,41 @@
+PIPE : RANGE PIPES
+     ;
+
+
+//PIPE_LIST : FUNC
+  //        | ID
+    //      | LIST
+      //    ; 
+
+PIPES : '|' PIPE_FUNCTION
+      | '|' PIPE_FUNCTION PIPES
+      ;
+
+PIPE_FUNCTION : FILTER
+              | FOR_EACH
+              | FIRST_N
+              | LAST_N
+              | SORT
+              |
+              ;
+
+RANGE : _RANGE '[' _CTE_INT _2PTS _CTE_INT ']' {
+                                                generatePipeRangeCode(&$$, $3.v, $5.v);
+                                                cout << "inicio: " << $3.v << "fim: " << $5.v << "forPipe: " << $$.c << endl;
+                                                }
+      ;
+      
+      
+      
+      void generateUnaryOperatorCode(Attribute* SS, const Attribute& S1, const Attribute& S2){
+    SS->t = Type("bool");
+    SS->v = generateTemp(SS->t);
+    
+    if(S2.t.name == "bool")
+    {
+        SS->c = SS->v + "=" + S2.c + "!" + S2.v + ";\n";
+        
+    }
+    else
+        error("O operador '!' só pode ser usado com um bool. Tipo esperado: 'parada', encontrado: " + S2.t.name);
+}

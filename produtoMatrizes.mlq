@@ -1,0 +1,35 @@
+trampo principal() {
+	mano, inteiro m eh 3, n eh 4, p eh 10;
+    
+	mano, inteiro i, j, k;
+
+	mano, inteiro m1[3][4], m2[4][10], m3[3][10];
+	
+	roleh ( i eh 0 ; i < m ; i eh i + 1) seLiga
+	    roleh ( j eh 0; j < n; j eh j + 1) seLiga
+	        m1[i][j] eh i + j;
+	        daOPapo "Matriz 1: Valor da posicao (" + i + "," + j + ")" + ": "+ m1[i][j];
+	    sacou?
+	sacou?
+	    daOPapo "\n";
+
+	roleh ( i eh 0 ; i < n ; i eh i + 1) seLiga
+	    roleh ( j eh 0; j < p; j eh j + 1) seLiga
+	        m2[i][j] eh i - j;
+	        daOPapo "Matriz 2: Valor da posicao (" + i + "," + j + ")" + ": "+ m2[i][j];
+	    sacou?
+	sacou?
+	    daOPapo "\n";
+	
+	roleh ( i eh 0; i < m; i eh i + 1) seLiga
+		roleh ( j eh 0; j < p; j eh j + 1) seLiga
+			m3[i][j] eh 0;
+			roleh (k eh 0; k < n; k eh k + 1) seLiga
+				m3[i][j] eh m3[i][j] + (m1[i][k]*m2[k][j]);
+			sacou?	
+			daOPapo "Matriz 3: Valor da posicao (" + i + "," + j + "): " + m3[i][j] ;
+			
+		sacou?
+	sacou?
+		daOPapo "\n";
+}

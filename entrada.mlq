@@ -1,0 +1,17 @@
+trampo produtoDeMatrizes() {
+	inteiro m eh 3, n eh 4, p eh 10;
+
+	inteiro i, j, k;
+
+	decimal m1[m][n], m2[n][p], m3[m][p];
+
+	roleh ( i eh 0; i < m; i eh i + 1){
+		roleh ( j eh 0; j < p; j eh j + 1){
+			m3[i][j] eh 0;
+			roleh (k eh 0; k < n; k eh k + 1) 
+				m3[i][j] eh m3[i][j] + m1[i][k] * m2[k][j];
+			daOPapo m3[i][[j];
+		}
+		daOPapo "\n";
+	}
+}

@@ -1,0 +1,7 @@
+trampo principal() {
+	mano, inteiro a[10], i;
+	
+	roleh (i eh 0 ; i < 10 ; i eh i + 1) a[i] eh i*2;
+	
+	a | filtro[x % 3 == 0] |paraCada[ daOPapo x; ];
+}

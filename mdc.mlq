@@ -1,0 +1,16 @@
+trampo inteiro mdc(inteiro a, inteiro b){
+    sePah b == 0 daih
+        flws a;
+	flws mdc(b, a % b);
+}
+
+trampo inteiro principal() {
+    mano, inteiro a, b;
+
+    daOPapo "digite o primeiro numero: ";
+    ficaLigado a;
+    daOPapo "digite o segundo numero: ";
+    ficaLigado b;
+    
+    daOPapo "o resultado é: " + mdc(a, b);
+}

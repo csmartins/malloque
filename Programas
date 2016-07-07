@@ -1,0 +1,62 @@
+1)
+trampo inteiro mdc(inteiro a, inteiro b){
+    sePah b == 0 daih
+        flws a;
+	flws mdc(b, a % b);
+}
+
+2)
+trampo produtoDeMatrizes() {
+	inteiro m eh 3, n eh 4, p eh 10;
+
+	inteiro i, j, k;
+
+	decimal m1[m][n], m2[n][p], m3[m][p];
+
+	roleh ( i eh 0; i < m; i eh i + 1){
+		roleh ( j eh 0; j < p; j eh j + 1){
+			m3[i][j] eh 0;
+			roleh (k eh 0; k < n; k eh k + 1) 
+				m3[i][j] eh m3[i][j] + m1[i][k] * m2[k][j];
+			daOPapo m3[i][[j];
+		}
+		daOPapo "\n";
+	}
+}
+
+3)
+
+trampo inteiro discriminante(inteiro a, inteiro b, inteiro c){
+	flws (b * b) - (4 * a *c);
+}
+
+trampo equacaoSegundoGrau(decimal a, decimal b, decimal c){
+	
+	sePah a nao eh 0 daih
+	seLiga
+		delta eh discriminante(a,b,c);
+
+		sePah delta >= 0 daih 
+		seLiga
+
+		raizDeDelta eh sqrt(delta); // tem sqrt em c-assembly?
+		raiz1 eh (-b + raizDeDelta) / (2 * a);	
+		raiz2 eh (-b - raizDeDelta) / (2 * a);
+	
+		sePah (raiz1 == raiz2) daih
+			daOPapo "Raíz: " + raiz1;
+		naoMeteEssa
+			daOPapo "Raizes: " + raiz1 + " e " + raiz2;
+		sacou?
+		naoMeteEssa
+		seLiga
+			parteImaginaria eh sqrt(-delta)/(2 * a);
+			parteReal eh (-b)/(2 * a);
+
+			daOPapo "Raiz 1: " + parteReal + " + " + parteImaginaria + "i";
+			daOPapo "Raiz 1: " + parteReal + " - " + parteImaginaria + "i";
+		sacou?
+	sacou?
+	naoMeteEssa
+		daoPapo "Não é uma equacao do 2o grau";
+	}
